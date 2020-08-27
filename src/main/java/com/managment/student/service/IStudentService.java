@@ -21,12 +21,7 @@ public class IStudentService implements StudentService {
         List<Student> studentList = studentRepository.findAll();
         studentRepository.saveAll(
                 studentList.stream()
-                        .filter(student -> {
-                            if(student.getMarks() == null) {
-                                return true;
-                            }
-                            return false;
-                        })
+                        .filter(student -> student.getMarks() == null && student.getYear() == 1)
                         .map(this::getRollNo)
                         .collect(Collectors.toList()));
         return studentList.size();
@@ -51,8 +46,10 @@ public class IStudentService implements StudentService {
     }
 
     @Override
-    public List<Student> findAllStudentMarks() {
-        return studentRepository.findAll();
+    public List<Marks> findAllStudentMarks() {
+        return studentRepository.findAll().stream()
+                .map(Student::getMarks)
+                .collect(Collectors.toList());
 
     }
 

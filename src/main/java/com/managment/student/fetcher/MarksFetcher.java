@@ -18,12 +18,9 @@ public class MarksFetcher {
     StudentService studentService;
 
 
-    public DataFetcher<List<Student>> findAll() {
-        return dataFetchingEnvironment -> {
-            return studentService.findAllStudentMarks();
-        };
+    public DataFetcher<List<Marks>> findAll() {
+        return dataFetchingEnvironment -> studentService.findAllStudentMarks();
     }
-
 
     public DataFetcher<Marks> save() {
         return dataFetchingEnvironment -> {

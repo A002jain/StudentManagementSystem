@@ -10,7 +10,7 @@ public interface StudentService {
     /**
      * it will generate rollno based on branch,name starting 3 letter,year
      * todo:add admin support or a deadline fix by admin on which it will genarate all rollno for new student
-     * @return
+     * @return no. of rollno generated or no. of new student added
      */
     int generateRollNo();
 
@@ -20,7 +20,8 @@ public interface StudentService {
 
     List<Student> findAllStudent();
 
-    List<Student> findAllStudentMarks();
+
+    List<Marks> findAllStudentMarks();
 
 
 }

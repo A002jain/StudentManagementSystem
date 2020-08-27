@@ -59,7 +59,7 @@ public class GraphQLProvider {
     private TypeRuntimeWiring.Builder queryBuilder(){
         return newTypeWiring("Query")
                 .dataFetcher("allStudent",studentFetcher.findAll())
-                .dataFetcher("allMarks",marksFetcher.findAll());
+                .dataFetcher("allStudentMarks",marksFetcher.findAll());
     }
 
     private TypeRuntimeWiring.Builder mutationBuilder(){
