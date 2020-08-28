@@ -59,12 +59,21 @@ public class GraphQLProvider {
     private TypeRuntimeWiring.Builder queryBuilder(){
         return newTypeWiring("Query")
                 .dataFetcher("allStudent",studentFetcher.findAll())
-                .dataFetcher("allStudentMarks",marksFetcher.findAll());
+                .dataFetcher("allStudentMarks",marksFetcher.findAll())
+                .dataFetcher("studentByName",studentFetcher.findStudentByName())
+                .dataFetcher("studentByYear",studentFetcher.findStudentByYear())
+                .dataFetcher("studentByBranch",studentFetcher.findStudentByBranch())
+                .dataFetcher("studentById",studentFetcher.findStudentById())
+                .dataFetcher("studentByRollNo",studentFetcher.findStudentByRollNo())
+                .dataFetcher("studentByYearNBranch",studentFetcher.findStudentByYearNBranch());
     }
 
     private TypeRuntimeWiring.Builder mutationBuilder(){
         return newTypeWiring("Mutation")
                 .dataFetcher("createStudent",studentFetcher.save())
+                .dataFetcher("deleteByRollNo",studentFetcher.deleteByRollNo())
+                .dataFetcher("deleteById",studentFetcher.deleteById())
+                .dataFetcher("updateStudent",studentFetcher.update())
                 .dataFetcher("generateRollNo",studentFetcher.generateRollNo())
                 .dataFetcher("addMark",marksFetcher.save());
     }

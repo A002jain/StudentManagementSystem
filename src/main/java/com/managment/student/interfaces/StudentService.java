@@ -20,9 +20,25 @@ public interface StudentService {
 
     List<Student> findAllStudent();
 
-
     List<Marks> findAllStudentMarks();
 
+    List<Student> findFilterStudent(int year , String branch);
+
+    List<Student> findStudentByYear(int year);
+
+    List<Student> findStudentByBranch(String branch);
+
+    List<Student> findStudentByName(String name);
+
+    Student findStudentById(String Id);
+
+    Student findStudentByRollNo(String rollNo);
+
+    Student updateStudent(Student student);
+
+    Student deleteStudentById(String studentId);
+
+    Student deleteStudentByRollNo(String rollNo);
 
 }
 

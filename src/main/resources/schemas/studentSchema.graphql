@@ -24,11 +24,20 @@ type Marks{
 
 type Query{
     allStudent:[Student]
+    studentByName(studentName: String):[Student]
+    studentByYear(year: Int):[Student]
+    studentByBranch(branch: String):[Student]
+    studentByYearNBranch(branch: String, year: Int):[Student]
     allStudentMarks:[Marks]
+    studentById(studentId: String):Student
+    studentByRollNo(rollNo: String):Student
 }
 
 type Mutation{
     createStudent(studentData:StudentInput):Student
+    updateStudent(studentData:StudentInput):Student
+    deleteById(studentId:String):Student
+    deleteByRollNo(rollNo:String):Student
     addMark(studentMarks: MarksInput):Marks
     generateRollNo:Int
 }
