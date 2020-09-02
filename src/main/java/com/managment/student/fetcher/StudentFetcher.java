@@ -15,8 +15,21 @@ public class StudentFetcher {
     StudentService studentService;
 
     public DataFetcher<Integer> generateRollNo(){
-        return dataFetchingEnvironment -> studentService.generateRollNo();
+        return dataFetchingEnvironment -> {
+            String branch = dataFetchingEnvironment.getArgument("branch");
+            int year = dataFetchingEnvironment.getArgument("year");
+            return studentService.generateRollNo(year,branch);
+        };
     }
+
+    public DataFetcher<Integer> promoteStudent(){
+        return dataFetchingEnvironment -> {
+            String branch = dataFetchingEnvironment.getArgument("branch");
+            int year = dataFetchingEnvironment.getArgument("year");
+            return studentService.promoted(branch,year);
+        };
+    }
+
 
     public DataFetcher<Student> save() {
         return dataFetchingEnvironment -> {

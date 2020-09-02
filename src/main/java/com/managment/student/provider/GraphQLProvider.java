@@ -75,6 +75,7 @@ public class GraphQLProvider {
                 .dataFetcher("deleteById",studentFetcher.deleteById())
                 .dataFetcher("updateStudent",studentFetcher.update())
                 .dataFetcher("generateRollNo",studentFetcher.generateRollNo())
-                .dataFetcher("addMark",marksFetcher.save());
+                .dataFetcher("addMark",marksFetcher.save())
+                .dataFetcher("promoteStudents",studentFetcher.promoteStudent());
     }
 }

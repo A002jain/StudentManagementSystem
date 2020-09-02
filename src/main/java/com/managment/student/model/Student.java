@@ -52,6 +52,15 @@ public class Student {
     @Column(name = "year")
     int year;
 
+    @JsonProperty("current_sem")
+    @Column(name = "current_sem")
+    int currentSem;
+
+
+    public int getCurrentSem() { return currentSem; }
+
+    public void setCurrentSem(int currentSem) { this.currentSem = currentSem; }
+
     public int getYear() {
         return year;
     }
@@ -129,5 +138,31 @@ public class Student {
 
     public void setDob(String dob) {
         this.dob = dob;
+    }
+
+    public Student mergeStudent(Student orgStudent){
+
+        if(this.studentName != null && !this.studentName.isEmpty() && !this.studentName.equalsIgnoreCase(orgStudent.getStudentName())){
+            orgStudent.setStudentName(this.studentName);
+        }
+        if(this.fatherName != null && !this.fatherName.isEmpty() && !this.fatherName.equalsIgnoreCase(orgStudent.getFatherName())){
+            orgStudent.setFatherName(this.fatherName);
+        }
+        if(this.address != null && !this.address.isEmpty() && !this.address.equalsIgnoreCase(orgStudent.getAddress())){
+            orgStudent.setAddress(this.address);
+        }
+        if(this.branch != null && !this.branch.isEmpty() && !this.branch.equalsIgnoreCase(orgStudent.getBranch())){
+            orgStudent.setBranch(this.branch);
+        }
+        if(this.tenth != null && this.tenth != 0 && !this.tenth.equals(orgStudent.getTenth())){
+            orgStudent.setTenth(this.tenth);
+        }
+        if(this.twelth != null && this.twelth != 0 && !this.twelth.equals(orgStudent.getTwelth())){
+            orgStudent.setTwelth(this.twelth);
+        }
+        if(this.dob != null && !this.dob.isEmpty() && !this.dob.equals(orgStudent.getDob())){
+            orgStudent.setDob(this.dob);
+        }
+        return orgStudent;
     }
 }

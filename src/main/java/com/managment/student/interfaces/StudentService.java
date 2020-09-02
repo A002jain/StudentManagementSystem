@@ -7,12 +7,8 @@ import java.util.List;
 
 public interface StudentService {
 
-    /**
-     * it will generate rollno based on branch,name starting 3 letter,year
-     * todo:add admin support or a deadline fix by admin on which it will genarate all rollno for new student
-     * @return no. of rollno generated or no. of new student added
-     */
-    int generateRollNo();
+
+    int generateRollNo(int year , String branch);
 
     Student saveStudent(Student student);
 
@@ -39,6 +35,8 @@ public interface StudentService {
     Student deleteStudentById(String studentId);
 
     Student deleteStudentByRollNo(String rollNo);
+
+    public int promoted(String branch, int year);
 
 }
 

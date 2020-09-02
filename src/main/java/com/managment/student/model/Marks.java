@@ -118,4 +118,34 @@ public class Marks {
     public void setSem8(int sem8) {
         this.sem8 = sem8;
     }
+
+    public Marks mergeMarks(Marks orgMarks){
+
+        if(this.sem1 != 0){
+            orgMarks.setSem1(this.sem1);
+        }
+        if(this.sem2 != 0){
+            orgMarks.setSem2(this.sem2);
+        }
+        if(this.sem3 != 0){
+            orgMarks.setSem3(this.sem3);
+        }
+        if(this.sem4 != 0){
+            orgMarks.setSem4(this.sem4);
+        }
+        if(this.sem5 != 0){
+            orgMarks.setSem5(this.sem5);
+        }
+        if(this.sem6 != 0){
+            orgMarks.setSem6(this.sem6);
+        }
+        if(this.sem7 != 0){
+            orgMarks.setSem7(this.sem7);
+        }
+        if(this.sem8 != 0){
+            orgMarks.setSem8(this.sem8);
+        }
+
+        return orgMarks;
+    }
 }

@@ -8,6 +8,7 @@ type Student{
     twelth :Float,
     dob:String
     year:Int
+    currentSem:Int
     marks:Marks
 }
 type Marks{
@@ -24,11 +25,11 @@ type Marks{
 
 type Query{
     allStudent:[Student]
+    allStudentMarks:[Marks]
     studentByName(studentName: String):[Student]
     studentByYear(year: Int):[Student]
     studentByBranch(branch: String):[Student]
     studentByYearNBranch(branch: String, year: Int):[Student]
-    allStudentMarks:[Marks]
     studentById(studentId: String):Student
     studentByRollNo(rollNo: String):Student
 }
@@ -39,7 +40,8 @@ type Mutation{
     deleteById(studentId:String):Student
     deleteByRollNo(rollNo:String):Student
     addMark(studentMarks: MarksInput):Marks
-    generateRollNo:Int
+    generateRollNo(branch: String, year: Int):Int
+    promoteStudents(branch: String, year: Int):Int
 }
 
 input StudentInput{
@@ -49,9 +51,8 @@ input StudentInput{
     address :String
     branch :String
     tenth :Float
-    twelth :Float,
-    dob:String
-    year:Int
+    twelth :Float
+    dob :String
 }
 
 input MarksInput{
