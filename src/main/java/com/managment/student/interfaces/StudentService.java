@@ -36,7 +36,7 @@ public interface StudentService {
 
     Student deleteStudentByRollNo(String rollNo);
 
-    public int promoted(String branch, int year);
+    int promoted(String branch, int year);
 
 }
 
