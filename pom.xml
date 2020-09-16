@@ -20,6 +20,7 @@
 	</properties>
 
 	<dependencies>
+		
 		<!-- Eureka client dependency -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
